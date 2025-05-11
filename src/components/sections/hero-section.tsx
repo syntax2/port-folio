@@ -38,7 +38,7 @@ export function HeroSection() {
   return (
     <SectionWrapper 
       id="hero" 
-      className="min-h-screen bg-gradient-to-br from-background via-secondary to-background dark:from-background dark:via-muted dark:to-background relative overflow-hidden" 
+      className="min-h-screen bg-gradient-to-br from-background via-secondary/70 to-background dark:from-background dark:via-muted/70 dark:to-background relative overflow-hidden" 
       containerClassName="flex flex-col items-center justify-center"
     >
       <motion.div 
@@ -50,13 +50,13 @@ export function HeroSection() {
         <motion.div className="space-y-6" variants={itemVariants}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground">
             <motion.span variants={itemVariants} className="block">Hi, I&apos;m </motion.span>
-            <motion.span variants={itemVariants} className="block text-primary">Your Name</motion.span>
+            <motion.span variants={itemVariants} className="block text-primary">Alex Johnson</motion.span>
           </h1>
           <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground text-balance">
             A passionate Full Stack Developer specializing in creating modern, responsive, and user-friendly web applications. Welcome to my portfolio.
           </motion.p>
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <Button asChild size="lg" className="shadow-lg hover:shadow-primary/50 transition-shadow">
+            <Button asChild size="lg" className="shadow-lg hover:shadow-primary/50 transition-shadow animate-pulse-slow">
               <Link href="#projects">View My Work <ArrowDown className="ml-2 h-5 w-5" /></Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow">

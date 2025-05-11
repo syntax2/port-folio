@@ -111,4 +111,18 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 hsla(var(--primary), 0.4);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 0 10px hsla(var(--primary), 0);
+    }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  }
 }

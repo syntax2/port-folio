@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { resumeData } from '@/lib/data';
 import { SectionWrapper } from '@/components/section-wrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Download, Briefcase, GraduationCap, Star, Lightbulb } from 'lucide-react';
-import Link from 'next/link';
+import { Download, Briefcase, GraduationCap, Lightbulb } from 'lucide-react';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -44,7 +44,7 @@ export function ResumeSection() {
         <motion.div className="text-center mb-12" variants={itemVariants}>
           <p className="text-lg text-muted-foreground mb-6 text-balance">{resumeData.summary}</p>
           {resumeData.downloadUrl && (
-            <Button asChild size="lg" className="transition-transform hover:scale-105">
+            <Button asChild size="lg" className="transition-transform hover:scale-105 shadow-md hover:shadow-primary/30">
                 <Link href={resumeData.downloadUrl} download target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-5 w-5" /> Download PDF
                 </Link>
@@ -54,7 +54,7 @@ export function ResumeSection() {
 
         {/* Experience Section */}
         <motion.div variants={itemVariants}>
-          <Card className="shadow-xl transition-all hover:shadow-primary/20">
+          <Card className="shadow-xl transition-all hover:shadow-primary/10 backdrop-blur-sm bg-card/80 border border-border/50">
             <CardHeader>
               <CardTitle className="flex items-center text-2xl">
                 <Briefcase className="mr-3 h-7 w-7 text-primary" /> Experience
@@ -64,13 +64,13 @@ export function ResumeSection() {
               {resumeData.experience.map((exp, index) => (
                 <motion.div 
                   key={exp.id} 
-                  className="border-l-4 border-primary pl-4 py-2 hover:bg-secondary/50 rounded-r-md transition-colors duration-300"
+                  className="border-l-4 border-primary pl-4 py-3 hover:bg-secondary/30 rounded-r-md transition-colors duration-300"
                   custom={index}
                   variants={itemVariants}
                 >
                   <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
                   <p className="text-md text-muted-foreground">{exp.company} | {exp.period}</p>
-                  <ul className="list-disc list-inside mt-2 space-y-1 text-sm text-muted-foreground">
+                  <ul className="list-disc list-inside mt-2 space-y-1.5 text-sm text-muted-foreground">
                     {exp.description.map((desc, i) => (
                       <li key={i}>{desc}</li>
                     ))}
@@ -83,7 +83,7 @@ export function ResumeSection() {
 
         {/* Education Section */}
         <motion.div variants={itemVariants}>
-          <Card className="shadow-xl transition-all hover:shadow-primary/20">
+          <Card className="shadow-xl transition-all hover:shadow-primary/10 backdrop-blur-sm bg-card/80 border border-border/50">
             <CardHeader>
               <CardTitle className="flex items-center text-2xl">
                 <GraduationCap className="mr-3 h-7 w-7 text-primary" /> Education
@@ -93,13 +93,13 @@ export function ResumeSection() {
               {resumeData.education.map((edu, index) => (
                 <motion.div 
                   key={edu.id} 
-                  className="border-l-4 border-primary pl-4 py-2 hover:bg-secondary/50 rounded-r-md transition-colors duration-300"
+                  className="border-l-4 border-primary pl-4 py-3 hover:bg-secondary/30 rounded-r-md transition-colors duration-300"
                   custom={index}
                   variants={itemVariants}
                 >
                   <h3 className="text-xl font-semibold text-foreground">{edu.title}</h3>
                   <p className="text-md text-muted-foreground">{edu.institution} | {edu.period}</p>
-                  <ul className="list-disc list-inside mt-2 space-y-1 text-sm text-muted-foreground">
+                  <ul className="list-disc list-inside mt-2 space-y-1.5 text-sm text-muted-foreground">
                     {edu.description.map((desc, i) => (
                       <li key={i}>{desc}</li>
                     ))}
@@ -112,7 +112,7 @@ export function ResumeSection() {
 
         {/* Skills Section */}
         <motion.div variants={itemVariants}>
-          <Card className="shadow-xl transition-all hover:shadow-primary/20">
+          <Card className="shadow-xl transition-all hover:shadow-primary/10 backdrop-blur-sm bg-card/80 border border-border/50">
             <CardHeader>
               <CardTitle className="flex items-center text-2xl">
                 <Lightbulb className="mr-3 h-7 w-7 text-primary" /> Skills
@@ -123,11 +123,11 @@ export function ResumeSection() {
                 {resumeData.skills.map((skill, index) => (
                   <motion.span 
                     key={skill} 
-                    className="bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm font-medium shadow-sm hover:bg-accent hover:text-accent-foreground transition-all duration-200 cursor-default transform hover:scale-110"
+                    className="bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-sm font-medium shadow-sm hover:bg-accent hover:text-accent-foreground transition-all duration-200 cursor-default transform hover:scale-110 hover:shadow-md"
                     custom={index}
                     variants={skillVariants}
-                    initial="hidden" // Initial for each skill, viewport handles parent
-                    animate="visible" // Animate for each skill, viewport handles parent
+                    initial="hidden" 
+                    animate="visible" 
                   >
                     {skill}
                   </motion.span>
@@ -136,7 +136,7 @@ export function ResumeSection() {
             </CardContent>
           </Card>
         </motion.div>
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 }

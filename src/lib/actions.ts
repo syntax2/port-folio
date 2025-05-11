@@ -1,3 +1,4 @@
+
 "use server";
 
 import { z } from "zod";
@@ -58,7 +59,8 @@ export async function submitContactForm(
 
 
 // AI Bio Generator
-export const aiBioGeneratorSchema = z.object({
+// This schema is used internally for validation and should not be exported.
+const aiBioGeneratorSchema = z.object({
   name: z.string().min(1, "Name is required."),
   title: z.string().min(1, "Title is required."),
   company: z.string().min(1, "Company is required."),
@@ -135,3 +137,4 @@ export async function generateBioAction(
     };
   }
 }
+

@@ -8,9 +8,9 @@ import { ThemeProvider } from '@/components/theme-provider';
 export const metadata: Metadata = {
   title: 'FolioFlow | Modern Portfolio',
   description: 'A modern portfolio showcasing skills, projects, and an AI bio generator.',
-  icons: {
-    icon: '/logo.svg', // Assuming a simple SVG logo can be created
-  }
+  // icons: {
+  //   icon: '/logo.svg', // Assuming a simple SVG logo can be created
+  // }
 };
 
 export default function RootLayout({

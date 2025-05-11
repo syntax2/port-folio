@@ -11,6 +11,7 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow">
+        {/* Sections will individually be client components if they use client-side hooks/animations */}
         <HeroSection />
         <ProjectsSection />
         <ResumeSection />

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -130,6 +131,7 @@ const Particle: React.FC<ParticleProps> = ({ id, x, y, icon: Icon, size, color, 
 // --- Hero Section ---
 export function HeroSection() {
   const targetRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null); // Define containerRef here
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end start"], // Track scroll from start of section to end of section
@@ -318,3 +320,5 @@ declare module "@/components/section-wrapper" {
     ref?: React.Ref<HTMLDivElement>;
   }
 }
+
+    

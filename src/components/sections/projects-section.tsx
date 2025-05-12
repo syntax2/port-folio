@@ -9,7 +9,8 @@ import { SectionWrapper } from '@/components/section-wrapper';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Code, Globe, BarChart3, Bot } from 'lucide-react';
+// Updated icons: ExternalLink, Github, Server, Terminal, BarChart3 (for monitoring), GitBranchPlus (for CI/CD)
+import { ExternalLink, Github, Server, Terminal, BarChart3, GitBranchPlus, Cloud } from 'lucide-react';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -21,11 +22,15 @@ const cardVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
+// Updated function to select icons based on SRE/DevOps tags
 function getTechIcon(tags: string[]) {
-  if (tags.some(tag => tag.toLowerCase().includes('web3') || tag.toLowerCase().includes('solidity'))) return <BarChart3 className="h-4 w-4 text-primary/70" />;
-  if (tags.some(tag => tag.toLowerCase().includes('ai') || tag.toLowerCase().includes('ml'))) return <Bot className="h-4 w-4 text-primary/70" />;
-  if (tags.some(tag => tag.toLowerCase().includes('rust') || tag.toLowerCase().includes('node'))) return <Code className="h-4 w-4 text-primary/70" />;
-  return <Globe className="h-4 w-4 text-primary/70" />;
+  const lowerTags = tags.map(tag => tag.toLowerCase());
+  if (lowerTags.includes('ci/cd') || lowerTags.includes('gitops') || lowerTags.includes('jenkins') || lowerTags.includes('github actions')) return <GitBranchPlus className="h-4 w-4 text-primary/70" />;
+  if (lowerTags.includes('monitoring') || lowerTags.includes('prometheus') || lowerTags.includes('grafana') || lowerTags.includes('datadog')) return <BarChart3 className="h-4 w-4 text-primary/70" />;
+  if (lowerTags.includes('iac') || lowerTags.includes('terraform') || lowerTags.includes('ansible') || lowerTags.includes('cloudformation')) return <Terminal className="h-4 w-4 text-primary/70" />;
+  if (lowerTags.includes('kubernetes') || lowerTags.includes('docker') || lowerTags.includes('container')) return <Server className="h-4 w-4 text-primary/70" />; // Changed from Container icon
+  if (lowerTags.includes('aws') || lowerTags.includes('gcp') || lowerTags.includes('azure') || lowerTags.includes('cloud')) return <Cloud className="h-4 w-4 text-primary/70" />;
+  return <Server className="h-4 w-4 text-primary/70" />; // Default server icon
 }
 
 
@@ -41,7 +46,7 @@ function ProjectCard({ project }: { project: Project }) {
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-              data-ai-hint={project.imageHint || 'project abstract'}
+              data-ai-hint={project.imageHint || 'project infrastructure'} // Updated hint
             />
             <div className="absolute top-2 right-2 bg-background/70 backdrop-blur-sm p-1.5 rounded-md shadow">
               {getTechIcon(project.tags)}
@@ -80,8 +85,8 @@ function ProjectCard({ project }: { project: Project }) {
 
 export function ProjectsSection() {
   return (
-    <SectionWrapper id="projects" title="My Projects">
-      <motion.div 
+    <SectionWrapper id="projects" title="Featured Projects"> {/* Updated Title */}
+      <motion.div
         className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         variants={sectionVariants}
         initial="hidden"

@@ -4,7 +4,8 @@ import { HeroSection } from '@/components/sections/hero-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
 import { ResumeSection } from '@/components/sections/resume-section';
 import { ContactSection } from '@/components/sections/contact-section';
-import { AIBioGeneratorSection } from '@/components/sections/ai-bio-generator-section';
+// import { AIBioGeneratorSection } from '@/components/sections/ai-bio-generator-section'; // Removed
+import { ExplainTechSection } from '@/components/sections/explain-tech-section'; // Added
 
 export default function HomePage() {
   return (
@@ -15,7 +16,8 @@ export default function HomePage() {
         <HeroSection />
         <ProjectsSection />
         <ResumeSection />
-        <AIBioGeneratorSection />
+        {/* <AIBioGeneratorSection /> */} {/* Removed */}
+        <ExplainTechSection /> {/* Added */}
         <ContactSection />
       </main>
       <Footer />

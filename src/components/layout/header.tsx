@@ -12,7 +12,8 @@ const navItems = [
   { label: 'Home', href: '#hero' },
   { label: 'Projects', href: '#projects' },
   { label: 'Resume', href: '#resume' },
-  { label: 'AI Bio Tool', href: '#ai-bio' },
+  // { label: 'AI Bio Tool', href: '#ai-bio' }, // Removed
+  { label: 'Explain Tech', href: '#explain-tech' }, // Added
   { label: 'Contact', href: '#contact' },
 ];
 

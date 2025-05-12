@@ -23,5 +23,5 @@ export interface ResumeData {
   experience: ResumeEntry[];
   education: ResumeEntry[];
   skills: string[];
-  downloadUrl: string;
+  downloadUrl: string; // Type is already string
 }

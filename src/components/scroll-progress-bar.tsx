@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -23,7 +24,7 @@ export function ScrollProgressBar() {
 
   return (
     <div 
-      className="fixed top-0 right-0 h-full w-[6px] bg-transparent z-[9999] pointer-events-none"
+      className="fixed top-0 left-0 h-full w-[6px] bg-transparent z-[9999] pointer-events-none"
       aria-hidden="true" // Hide from assistive technologies as it's a visual enhancement
     >
       {/* Optional: A subtle track for the progress bar, useful for contrast */}
@@ -36,3 +37,4 @@ export function ScrollProgressBar() {
     </div>
   );
 }
+

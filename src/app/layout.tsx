@@ -6,11 +6,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Ashish Kadian | SRE & DevOps Engineer Portfolio',
+  title: 'Ashish Kadian | SRE & DevOps Engineer', // Updated title
   description: 'Portfolio of Ashish Kadian, a Site Reliability Engineer (SRE), DevOps, and Cloud Security specialist. Showcasing skills, projects, and experience in building resilient and scalable cloud infrastructure.',
-  // icons: {
-  //   icon: '/logo.svg', // Assuming a simple SVG logo can be created
-  // }
 };
 
 export default function RootLayout({
@@ -34,4 +31,3 @@ export default function RootLayout({
     </html>
   );
 }
-

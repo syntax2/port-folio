@@ -7,7 +7,7 @@ import { resumeData } from '@/lib/data';
 import { SectionWrapper } from '@/components/section-wrapper';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Download, Briefcase, GraduationCap, Lightbulb, CheckCircle } from 'lucide-react';
+import { Download, Briefcase, GraduationCap, Lightbulb, CheckCircle, Award } from 'lucide-react';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -43,9 +43,9 @@ export function ResumeSection() {
         viewport={{ once: true, amount: 0.1 }}
       >
         <motion.div className="text-center mb-12" variants={itemVariants}>
-          <p className="text-lg text-muted-foreground mb-8 text-balance leading-relaxed">{resumeData.summary}</p>
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance leading-relaxed px-2 sm:px-0">{resumeData.summary}</p>
           {resumeData.downloadUrl && (
-            <Button asChild size="lg" className="transition-all duration-300 ease-out transform hover:scale-105 shadow-lg hover:shadow-primary/40 focus-visible-ring">
+            <Button asChild size="lg" className="transition-all duration-300 ease-out transform hover:scale-105 shadow-lg hover:shadow-primary/40 focus-visible-ring animate-pulse-slow">
                 <Link href={resumeData.downloadUrl} download target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-5 w-5" /> Download Full Resume
                 </Link>
@@ -55,28 +55,28 @@ export function ResumeSection() {
 
         {/* Experience Section */}
         <motion.div variants={itemVariants}>
-          <Card className="shadow-xl transition-all duration-300 hover:shadow-primary/10 backdrop-blur-sm bg-card/90 border border-border/70 dark:bg-card/80 dark:border-border/50 rounded-xl">
-            <CardHeader>
+          <Card className="shadow-xl transition-all duration-300 hover:shadow-primary/10 backdrop-blur-sm bg-card/90 border border-border/70 dark:bg-card/80 dark:border-border/50 rounded-xl overflow-hidden">
+            <CardHeader className="bg-primary/5 dark:bg-primary/10">
               <CardTitle className="flex items-center text-2xl md:text-3xl font-semibold text-primary">
                 <Briefcase className="mr-3 h-7 w-7" /> Professional Experience
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-8">
+            <CardContent className="space-y-8 pt-6">
               {resumeData.experience.map((exp, index) => (
                 <motion.div 
                   key={exp.id} 
                   className="border-l-4 border-accent pl-5 py-4 hover:bg-secondary/50 dark:hover:bg-secondary/30 rounded-r-lg transition-all duration-300 ease-out"
                   custom={index}
-                  variants={itemVariants} // Re-using for staggered reveal within section
+                  variants={itemVariants} 
                 >
                   <h3 className="text-xl font-semibold text-foreground mb-0.5">{exp.title}</h3>
                   <p className="text-md font-medium text-primary/90 dark:text-primary/80">{exp.company}</p>
-                  <p className="text-sm text-muted-foreground mb-2">{exp.period}</p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground mb-3">{exp.period}</p>
+                  <ul className="space-y-2.5 text-sm text-muted-foreground">
                     {exp.description.map((desc, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 shrink-0" />
-                        <span>{desc}</span>
+                        <CheckCircle className="h-4 w-4 text-accent mr-2.5 mt-0.5 shrink-0" />
+                        <span className="text-balance">{desc}</span>
                       </li>
                     ))}
                   </ul>
@@ -88,13 +88,13 @@ export function ResumeSection() {
 
         {/* Education Section */}
         <motion.div variants={itemVariants}>
-          <Card className="shadow-xl transition-all duration-300 hover:shadow-primary/10 backdrop-blur-sm bg-card/90 border border-border/70 dark:bg-card/80 dark:border-border/50 rounded-xl">
-            <CardHeader>
+          <Card className="shadow-xl transition-all duration-300 hover:shadow-primary/10 backdrop-blur-sm bg-card/90 border border-border/70 dark:bg-card/80 dark:border-border/50 rounded-xl overflow-hidden">
+            <CardHeader className="bg-primary/5 dark:bg-primary/10">
               <CardTitle className="flex items-center text-2xl md:text-3xl font-semibold text-primary">
                 <GraduationCap className="mr-3 h-7 w-7" /> Education & Certifications
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-8">
+            <CardContent className="space-y-8 pt-6">
               {resumeData.education.map((edu, index) => (
                 <motion.div 
                   key={edu.id} 
@@ -104,13 +104,13 @@ export function ResumeSection() {
                 >
                   <h3 className="text-xl font-semibold text-foreground mb-0.5">{edu.title}</h3>
                   <p className="text-md font-medium text-primary/90 dark:text-primary/80">{edu.institution}</p>
-                  <p className="text-sm text-muted-foreground mb-2">{edu.period}</p>
+                  <p className="text-sm text-muted-foreground mb-3">{edu.period}</p>
                   {edu.description.length > 0 && (
-                    <ul className="space-y-2 text-sm text-muted-foreground">
+                    <ul className="space-y-2.5 text-sm text-muted-foreground">
                       {edu.description.map((desc, i) => (
                         <li key={i} className="flex items-start">
-                           <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 shrink-0" />
-                           <span>{desc}</span>
+                           <Award className="h-4 w-4 text-accent mr-2.5 mt-0.5 shrink-0" />
+                           <span className="text-balance">{desc}</span>
                         </li>
                       ))}
                     </ul>
@@ -123,22 +123,23 @@ export function ResumeSection() {
 
         {/* Skills Section */}
         <motion.div variants={itemVariants}>
-          <Card className="shadow-xl transition-all duration-300 hover:shadow-primary/10 backdrop-blur-sm bg-card/90 border border-border/70 dark:bg-card/80 dark:border-border/50 rounded-xl">
-            <CardHeader>
+          <Card className="shadow-xl transition-all duration-300 hover:shadow-primary/10 backdrop-blur-sm bg-card/90 border border-border/70 dark:bg-card/80 dark:border-border/50 rounded-xl overflow-hidden">
+            <CardHeader className="bg-primary/5 dark:bg-primary/10">
               <CardTitle className="flex items-center text-2xl md:text-3xl font-semibold text-primary">
                 <Lightbulb className="mr-3 h-7 w-7" /> Core Competencies
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-6">
               <div className="flex flex-wrap gap-3">
                 {resumeData.skills.map((skill, index) => (
                   <motion.span 
                     key={skill} 
                     className="bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-foreground/90 px-4 py-2 rounded-lg text-sm font-medium shadow-sm hover:bg-accent hover:text-accent-foreground transition-all duration-200 cursor-default transform hover:scale-105 hover:shadow-md"
                     custom={index}
-                    variants={skillVariants} // Changed from itemVariants for distinct animation
-                    initial="hidden"
-                    animate="visible" 
+                    variants={skillVariants} 
+                    initial="hidden" // Ensure initial state for staggered animation
+                    whileInView="visible" // Animate when in view
+                    viewport={{ once: true, amount: 0.2 }} // Trigger animation once
                   >
                     {skill}
                   </motion.span>

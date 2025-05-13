@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ThemeToggleButton } from '@/components/theme-toggle-button';
-import { ALogo } from './logo'; // Changed from FolioFlowLogo
+import { ALogo } from './logo';
 
 const navItems = [
   { label: 'Home', href: '#hero' },

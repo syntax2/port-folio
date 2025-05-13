@@ -1,154 +1,135 @@
 import type { Project, ResumeData } from './types';
 
-// SRE/DevOps Focused Projects
+// SRE/DevOps Focused Projects for Ashish Kadian
 export const projectsData: Project[] = [
   {
     id: '1',
-    title: 'Automated Kubernetes Deployment Pipeline',
-    description: 'Built a CI/CD pipeline using GitHub Actions and Argo CD for automated testing, building, and deployment of microservices to a Kubernetes cluster, significantly improving deployment frequency and reliability.',
-    imageUrl: 'https://picsum.photos/seed/cicd-kubernetes/600/400',
-    imageHint: 'ci cd pipeline',
-    tags: ['CI/CD', 'Kubernetes', 'Argo CD', 'GitOps', 'GitHub Actions', 'Docker', 'DevOps'],
-    repoUrl: '#', // Replace with actual URL
+    title: 'Automated Kubernetes Deployment Pipeline (CI/CD)',
+    description: 'Engineered a robust CI/CD pipeline using Jenkins and Argo CD for automated testing, building, and deployment of microservices to Amazon EKS, achieving a 70% reduction in deployment time and enhancing release reliability.',
+    imageUrl: 'https://picsum.photos/seed/kubernetes-cicd/600/400',
+    imageHint: 'ci cd kubernetes',
+    tags: ['Kubernetes', 'CI/CD', 'Jenkins', 'Argo CD', 'Amazon EKS', 'Docker', 'DevOps', 'GitOps'],
+    repoUrl: 'https://github.com/syntax2/', // Placeholder, use actual if available
   },
   {
     id: '2',
-    title: 'Infrastructure as Code for AWS Landing Zone',
-    description: 'Developed reusable Terraform modules to provision a secure, scalable, and compliant AWS multi-account structure (Landing Zone), enforcing best practices for governance and cost management.',
-    imageUrl: 'https://picsum.photos/seed/terraform-aws/600/400',
-    imageHint: 'cloud infrastructure code',
-    tags: ['Terraform', 'AWS', 'IaC', 'Security', 'Networking', 'SRE', 'Governance'],
-    repoUrl: '#', // Replace with actual URL
+    title: 'Scalable AWS Infrastructure with Terraform & CloudFormation',
+    description: 'Provisioned and managed a secure multi-account AWS environment from scratch using Terraform and CloudFormation, implementing VPCs, subnets, IAM roles, and security groups following scalability and security best practices.',
+    imageUrl: 'https://picsum.photos/seed/aws-terraform-iac/600/400',
+    imageHint: 'cloud infrastructure diagram',
+    tags: ['AWS', 'Terraform', 'CloudFormation', 'IaC', 'VPC', 'IAM', 'Security', 'Scalability'],
+    repoUrl: 'https://github.com/syntax2/', // Placeholder
   },
   {
     id: '3',
-    title: 'Centralized Logging & Monitoring Stack',
-    description: 'Implemented and managed an EFK (Elasticsearch, Fluentd, Kibana) stack on Kubernetes for centralized logging, integrated with Prometheus/Grafana for application/infra monitoring and actionable alerting.',
-    imageUrl: 'https://picsum.photos/seed/monitoring-stack/600/400',
-    imageHint: 'dashboard monitoring logs',
-    tags: ['Monitoring', 'Logging', 'EFK Stack', 'Prometheus', 'Grafana', 'Alerting', 'Kubernetes'],
-    liveUrl: '#', // Link to a demo dashboard if possible
+    title: 'End-to-End Observability Stack Implementation',
+    description: 'Deployed and configured a comprehensive observability solution using Prometheus, Grafana, and ELK Stack (Elasticsearch, Logstash, Kibana) for real-time monitoring, centralized logging, and proactive alerting, reducing downtime by 40%.',
+    imageUrl: 'https://picsum.photos/seed/observability-stack/600/400',
+    imageHint: 'monitoring dashboard charts',
+    tags: ['Monitoring', 'Logging', 'Prometheus', 'Grafana', 'ELK Stack', 'Alerting', 'DevOps', 'AWS CodeDeploy'],
+    liveUrl: 'https://www.ashishkadian.tech', // Placeholder
   },
-   {
+  {
     id: '4',
-    title: 'Serverless API Cost Optimization Initiative',
-    description: 'Led an initiative to analyze and optimize AWS Lambda and API Gateway usage for a high-traffic serverless application, reducing monthly infrastructure costs by over 25% through architectural refactoring and tuning.',
-    imageUrl: 'https://picsum.photos/seed/serverless-api/600/400',
-    imageHint: 'cloud cost optimization chart',
-    tags: ['Serverless', 'AWS Lambda', 'API Gateway', 'Cost Optimization', 'CloudWatch', 'Performance Tuning', 'Python'],
-    repoUrl: '#',
+    title: 'Automated Cloud Security & Compliance Framework',
+    description: 'Designed and implemented a security automation framework using Ansible, achieving 100% audit clearance for 40+ compliance requirements. Integrated WAF, RBAC, and secrets management to strengthen system security across diverse environments.',
+    imageUrl: 'https://picsum.photos/seed/cloud-security-automation/600/400',
+    imageHint: 'security compliance dashboard',
+    tags: ['Cloud Security', 'Ansible', 'Automation', 'Compliance', 'WAF', 'RBAC', 'DevSecOps'],
+    repoUrl: 'https://github.com/syntax2/', // Placeholder
   },
   {
     id: '5',
-    title: 'Chaos Engineering Platform Development',
-    description: 'Contributed to the design and development of an internal Chaos Engineering platform using LitmusChaos integrated with Kubernetes. Enabled controlled failure injection (pod deletes, network latency) to proactively identify and fix resilience issues.',
-    imageUrl: 'https://picsum.photos/seed/chaos-engineering/600/400',
-    imageHint: 'chaos monkey system failure',
-    tags: ['Chaos Engineering', 'Resilience', 'Kubernetes', 'LitmusChaos', 'Go', 'Testing', 'SRE'],
-    repoUrl: '#', // Replace with actual URL
-  },
-  {
-    id: '6',
-    title: 'Zero-Downtime Critical Database Migration',
-    description: 'Successfully migrated a mission-critical multi-terabyte PostgreSQL database cluster to a new major version on AWS RDS with zero application downtime using logical replication, rigorous data validation, and a carefully orchestrated cutover process.',
-    imageUrl: 'https://picsum.photos/seed/database-migration/600/400',
-    imageHint: 'database server cluster',
-    tags: ['Database Migration', 'High Availability', 'PostgreSQL', 'AWS RDS', 'Zero Downtime', 'Replication', 'Data Validation'],
-    // liveUrl: '#', // Potentially link to a blog post/case study
+    title: 'Optimized Cloud-Native Application Performance',
+    description: 'Led optimization efforts for Python-based (Django/FastAPI) applications on Kubernetes, reducing container service boot time by 73% and improving overall application response times. Optimized cloud infrastructure costs by 25% through right-sizing and auto-scaling.',
+    imageUrl: 'https://picsum.photos/seed/app-performance-optimization/600/400',
+    imageHint: 'performance graph application',
+    tags: ['Performance Optimization', 'Kubernetes', 'Docker', 'Python', 'Django', 'FastAPI', 'Cost Optimization', 'AWS'],
+    // liveUrl: 'https://www.ashishkadian.tech', // Placeholder
   },
 ];
 
-// SRE/DevOps Focused Resume Data
+// Resume Data for Ashish Kadian
 export const resumeData: ResumeData = {
-  summary: "Results-driven SRE/DevOps Engineer with 5+ years of experience automating infrastructure, building robust CI/CD pipelines, implementing Chaos Engineering practices, and ensuring the reliability and scalability of cloud-native applications. Proven ability to reduce downtime, improve performance, and optimize cloud costs using modern DevOps practices and tools.", // Enhanced summary
+  summary: "Site Reliability Engineer (SRE) and DevOps specialist with proven expertise in AWS cloud services, infrastructure automation, and scalable system design. Proven track record of reducing provisioning time by 70% using Terraform and CloudFormation, and enhancing deployment efficiency through Kubernetes-based CI/CD pipelines. Strong focus on reliability, security, and performance, integrating SRE principles with modern DevOps practices to support mission-critical systems. Ranked All India #2 in the GATE CSE Scholarship Test, demonstrating top-tier technical proficiency and problem-solving excellence.",
   experience: [
     {
       id: 'exp1',
-      title: 'Senior Site Reliability Engineer', // Updated title
-      company: 'CloudScale Dynamics',
-      period: 'Mar 2021 - Present',
+      title: 'Site Reliability Engineer, Cloud Security & Operations',
+      company: 'Teradata',
+      period: '07/2023 - Present',
       description: [
-        'Led the design and implementation of automated CI/CD pipelines using GitLab CI & Argo CD, reducing deployment lead time by 60% and increasing deployment frequency.', // Updated impact
-        'Managed and scaled Kubernetes clusters (EKS) across production and staging, ensuring high availability (>99.99%) and implementing auto-scaling policies.', // More specific
-        'Developed and maintained Infrastructure as Code (IaC) using Terraform for provisioning and managing AWS resources adhering to security and compliance standards.', // Added detail
-        'Established comprehensive observability stacks using Prometheus, Grafana, Thanos, and Loki for metrics, tracing, and logging.', // More specific tools
-        'Championed and implemented Chaos Engineering experiments to validate system resilience and identify weaknesses.', // Added Chaos Engineering
-        'Led incident response efforts for critical production issues, facilitated blameless post-mortems, and drove remediation actions.', // Strengthened language
+        'Deployed Jenkins on Amazon EKS with a fully automated CI/CD pipeline using CodeDeploy, cutting deployment time by 70% and achieving 99.9% reliability for production workloads.',
+        'Reduced container service boot time by 73% (from 8 to 3 minutes) by optimizing orchestration logic and configurations.',
+        'Provisioned new AWS account from scratch using Terraform (VPCs, subnets, IAM, security groups), applying security and scalability best practices.',
+        'Built and owned an internal Operations Portal (Angular + FastAPI), enabling 100+ users to manage cloud operations with 70% improved efficiency.',
+        'Achieved 20% AWS cost savings via environment consolidation, right-sizing, and mandatory tagging enforcement (SCP).',
+        'Strengthened cloud infrastructure security with IAM policies, WAF, CIS compliance, and automated audits.',
+        'Deployed Datadog for centralized monitoring and logging, reducing production debugging time by 40%.',
+        'Managed uptime, scaling, and automated backups/patches for AWS services including EC2, S3, ALB, RDS, Redis, and Kafka.',
+        'Containerized applications using Docker and orchestrated deployments on Amazon EKS, enhancing scalability and reliability.',
       ],
     },
     {
       id: 'exp2',
       title: 'DevOps Engineer',
-      company: 'AgileSoft Solutions',
-      period: 'Jul 2018 - Feb 2021',
+      company: 'IIT Bombay',
+      period: '08/2022 - 06/2023',
       description: [
-        'Automated infrastructure configuration and application deployment across environments using Ansible playbooks and roles.',
-        'Containerized legacy monolithic applications using Docker, improving deployment consistency and resource utilization.',
-        'Managed build systems (Jenkins) and artifact repositories (Nexus, Artifactory), optimizing build times.',
-        'Collaborated with development teams to integrate security scanning (SAST/DAST) and compliance checks into CI/CD pipelines.',
-        'Implemented and maintained centralized logging solutions using the ELK stack for troubleshooting and analysis.',
+        'Designed and implemented a security automation framework using Ansible, covering 40+ compliance requirements, achieving 100% audit clearance and reducing Critical and high vulnerabilities.',
+        'Architected and deployed Kubernetes-based CI/CD pipelines for Django applications, reducing deployment time by 50% and improving rollback efficiency.',
+        'Automated infrastructure provisioning with Terraform and Ansible, cutting manual setup time by 70% for compute-intensive research environments.',
+        'Strengthened system security by 60% using WAF, RBAC, and encrypted secrets across web, database, and infrastructure layers.',
+        'Deployed observability stack (Prometheus + Grafana for monitoring; ELK for logging), reducing incident detection time from 15 minutes to under 2 minutes.',
+        'Optimized cloud infrastructure costs by 25% through right-sizing, auto-scaling, and resource utilization analysis, while maintaining SLA performance.',
+      ],
+    },
+    {
+      id: 'exp3',
+      title: 'Devops Engineer (Intern)',
+      company: 'Sachtak',
+      period: '02/2022 - 07/2022',
+      description: [
+        'Automated CI/CD pipelines with Jenkins and GitHub Actions, cutting deploy time by 80%.',
+        'Containerized applications using Docker and deployed to AWS ECS, eliminating "works on my machine" errors.',
+        'Provisioned infra with Terraform (VPCs, EC2, RDS, SGs), slashing environment spin-up from days to minutes.',
+        'Integrated Prometheus and Grafana for real-time monitoring.',
       ],
     },
   ],
   education: [
     {
       id: 'edu1',
-      title: 'Bachelor of Science in Information Technology',
-      institution: 'Tech State University',
-      period: '2014 - 2018',
-      description: [
-          'Concentration in Network Engineering and Systems Administration.',
-          'Minor in Cybersecurity fundamentals.', // Added minor
-        ],
+      title: 'Post Graduate Diploma in Computer Science',
+      institution: 'IIIT Bangalore',
+      period: '02/2024 - 02/2025',
+      description: ['Specializing in cloud computing, distributed systems, and advanced algorithms.'],
     },
     {
-      id: 'edu2', // Added certification
-      title: 'Certified Kubernetes Administrator (CKA)',
-      institution: 'Cloud Native Computing Foundation (CNCF)',
-      period: '2022',
-      description: ['Demonstrated expertise in Kubernetes cluster administration, configuration, and troubleshooting.'],
-    },
-     {
-      id: 'edu3', // Added certification
-      title: 'AWS Certified DevOps Engineer – Professional',
-      institution: 'Amazon Web Services',
-      period: '2021',
-      description: ['Validated technical expertise in provisioning, operating, and managing distributed application systems on the AWS platform.'],
+      id: 'edu2',
+      title: 'Bachelor of Technology (BTech) in Computer Science',
+      institution: 'JECRC University',
+      period: '06/2016 - 06/2020',
+      description: ['Focus on software engineering, data structures, and database management systems.'],
     },
   ],
   skills: [
     // Cloud Platforms
-    'AWS (EKS, EC2, S3, RDS, Lambda, VPC, IAM, CloudFormation, CloudWatch)', // More specific AWS
-    'GCP (GKE, Compute Engine, Cloud SQL)', // More specific GCP
-    'Azure (Basic understanding of AKS, VMs)', // Specify level
-
+    'AWS', 'Docker', 'Kubernetes', 'Terraform',
     // IaC & Configuration Management
-    'Terraform (Advanced)', 'Ansible', 'CloudFormation', 'Packer',
-
-    // Containerization & Orchestration
-    'Docker', 'Kubernetes (K8s)', 'Helm', 'Service Mesh (Istio/Linkerd - Basic)', // Added Service Mesh
-
-    // CI/CD & GitOps
-    'GitLab CI', 'GitHub Actions', 'Jenkins', 'Argo CD', 'FluxCD', // Added Flux
-
-    // Monitoring, Logging & Observability
-    'Prometheus', 'Grafana', 'Thanos', 'Loki', 'Tempo', // Added Tempo for tracing
-    'Datadog', 'EFK/ELK Stack', 'OpenTelemetry', // Added OpenTelemetry
-
-    // Scripting & Programming
-    'Python', 'Bash', 'Go (Golang)', // Emphasized Go
-
-    // Operating Systems & Networking
-    'Linux (Ubuntu, CentOS, Alpine)', 'TCP/IP', 'DNS', 'HTTP/S', 'Load Balancing (Nginx, HAProxy, ELB/ALB)',
-
-    // Databases & Caching
-    'PostgreSQL', 'MySQL', 'Redis', 'MongoDB (Basic)', // Specify level
-
-    // Security & Compliance
-    'Security Best Practices', 'SAST/DAST Tools', 'Secrets Management (Vault)', // Added Vault
-
-    // Other Concepts
-    'Chaos Engineering', 'Incident Management', 'Blameless Post-mortems', 'Agile/Scrum', 'Git', 'SLO/SLI Definition',
+    'Ansible', 'CloudFormation',
+    // CI/CD
+    'Gitlab CI', 'Jenkins', 'GitHub Actions',
+    // Programming & Scripting
+    'Python', 'Bash', 'FastAPI',
+    // Monitoring & Logging
+    'Datadog', 'Prometheus', 'Grafana', 'ELK Stack',
+    // Databases
+    'MySQL', 'Redis',
+    // Web Servers & Others
+    'Nginx', 'Azure (Basic)',
+    // Concepts
+    'Cloud Security', 'System Design', 'DevSecOps', 'Infrastructure Hardening', 'Continuous Compliance', 'Threat Modeling'
   ],
-  downloadUrl: '/alex_johnson_sre_devops_resume.pdf', // Updated file name
+  downloadUrl: '/ashish_kadian_resume.pdf', // Placeholder, ensure this file exists in /public
 };

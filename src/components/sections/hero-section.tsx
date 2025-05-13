@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useMemo, useState } from 'react';
@@ -7,7 +8,6 @@ import { motion, useScroll, useTransform, useMotionValue, type MotionValue } fro
 import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/section-wrapper';
 import { ArrowDown, Code, Cloud, Server, ShieldCheck, GitBranchPlus } from 'lucide-react';
-
 
 // --- Animation Variants ---
 const containerVariants = {
@@ -53,7 +53,6 @@ const titleWordVariants = (delayBase: number) => ({
   }),
 });
 
-
 const imageContainerVariants = {
   hidden: { opacity: 0, scale: 0.8, rotate: -15 },
   visible: {
@@ -65,13 +64,13 @@ const imageContainerVariants = {
 };
 
 const buttonVariants = {
-   hidden: { opacity: 0, y: 20 },
-   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", delay: 1.2 } },
-}
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", delay: 1.2 } },
+};
 
 // --- Orbiting Icon Component ---
 interface OrbitingIconProps {
-  icon: React.ComponentType<{ className?: string; size?: number }>;
+  component: React.ComponentType<{ className?: string; size?: number }>; // Changed from icon to component
   size: number;
   color: string;
   orbitRadius: number;
@@ -80,7 +79,7 @@ interface OrbitingIconProps {
   delay: number;
 }
 
-const OrbitingIcon: React.FC<OrbitingIconProps> = ({ icon: Icon, size, color, orbitRadius, angleOffset, duration, delay }) => {
+const OrbitingIcon: React.FC<OrbitingIconProps> = ({ component: Icon, size, color, orbitRadius, angleOffset, duration, delay }) => { // Changed from icon: Icon
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -123,7 +122,6 @@ const OrbitingIcon: React.FC<OrbitingIconProps> = ({ icon: Icon, size, color, or
     </motion.div>
   );
 };
-
 
 // --- Hero Section ---
 export function HeroSection() {
@@ -172,9 +170,8 @@ export function HeroSection() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const imageParallaxX = useTransform(mouseX, (value) => (value / 200) * 10 );
-  const imageParallaxY = useTransform(mouseY, (value) => (value / 200) * 10 );
-
+  const imageParallaxX = useTransform(mouseX, (value) => (value / 200) * 10);
+  const imageParallaxY = useTransform(mouseY, (value) => (value / 200) * 10);
 
   return (
     <SectionWrapper
@@ -214,7 +211,7 @@ export function HeroSection() {
               {titleParts.map((part, partIndex) => (
                 <span key={partIndex} className="inline-block mr-1.5">
                   {part.map((word, wordIndex) => (
-                     <motion.span
+                    <motion.span
                       key={`${word}-${wordIndex}`}
                       custom={wordIndex + titleParts.slice(0, partIndex).flat().length}
                       variants={titleWordVariants(0.3 + nameLetters.length * 0.05 + 0.2)}
@@ -229,7 +226,7 @@ export function HeroSection() {
             </motion.span>
           </h1>
 
-          <motion.p variants={textItemVariants} transition={{delay: 0.8}} className="text-md md:text-lg text-muted-foreground text-balance">
+          <motion.p variants={textItemVariants} transition={{ delay: 0.8 }} className="text-md md:text-lg text-muted-foreground text-balance">
             Pioneering resilient, scalable, and secure cloud-native infrastructures through advanced SRE methodologies and robust DevOps automation.
           </motion.p>
           <motion.div variants={buttonVariants} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -249,22 +246,22 @@ export function HeroSection() {
           variants={imageContainerVariants}
           style={{ x: imageParallaxX, y: imageParallaxY }}
         >
-           <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[350px] md:h-[350px] flex items-center justify-center">
-             <motion.div
-                className="absolute inset-[-15px] bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-full blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-1000"
-                animate={{ scale: [1, 1.03, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-             />
+          <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[350px] md:h-[350px] flex items-center justify-center">
+            <motion.div
+              className="absolute inset-[-15px] bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-full blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-1000"
+              animate={{ scale: [1, 1.03, 1], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
 
-             <Image
-               src="https://picsum.photos/seed/ashish-kadian-portfolio/400/400"
-               alt="Ashish Kadian - SRE & DevOps Engineer"
-               width={400}
-               height={400}
-               priority
-               className="relative z-[1] rounded-full object-cover shadow-xl w-full h-full border-4 border-background/30"
-               data-ai-hint="professional engineer portrait"
-             />
+            <Image
+              src="https://picsum.photos/seed/ashish-kadian-portfolio/400/400"
+              alt="Ashish Kadian - SRE & DevOps Engineer"
+              width={400}
+              height={400}
+              priority
+              className="relative z-[1] rounded-full object-cover shadow-xl w-full h-full border-4 border-background/30"
+              data-ai-hint="professional engineer portrait"
+            />
 
             <div className="absolute inset-0 flex items-center justify-center z-[5] pointer-events-none">
               <div className="absolute w-full h-full">
@@ -290,7 +287,7 @@ export function HeroSection() {
       >
         <ShieldCheck className="inline-block mr-2 h-7 w-7" /> Secure & Comply
       </motion.div>
-       <motion.div
+      <motion.div
         className="absolute top-[50%] right-[10%] text-xl md:text-2xl font-light text-muted-foreground/5 dark:text-muted-foreground/10 -rotate-[6deg] opacity-50 select-none pointer-events-none hidden md:block"
         style={{ y: scaleY }}
       >
@@ -316,3 +313,5 @@ export function HeroSection() {
     </SectionWrapper>
   );
 }
+
+    
